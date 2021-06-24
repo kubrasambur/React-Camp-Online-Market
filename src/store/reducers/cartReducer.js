@@ -5,12 +5,14 @@ import { cartItems } from "../initialValues/cartItems";
 
 const initialState = {
   cartItems: cartItems,
+  totalAmount:0
 };
 //push referansı değişmez.Bunun için de redux a göre sepet değişmemiş oluyo
 export default function cartReducer(state = initialState, { type, payload }) {
   switch (type) {
     case ADD_TO_CART:
       //cartItem daki ilgili product ın id si ile benim payload ile gönderdiğim id aynı ise bu ürünü daha önce sepete eklemişim
+      state.totalAmount += payload.unitPrice;
       let product = state.cartItems.find((c) => c.product.productID === payload.productID);
       if (product) {
         product.quantity++;

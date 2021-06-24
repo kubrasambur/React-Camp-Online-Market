@@ -4,7 +4,7 @@ import { Icon, Menu, Table,Button } from "semantic-ui-react";
 import ProductService from "../services/productService";
 import {Link} from "react-router-dom"
 import { useDispatch } from "react-redux";
-import {addToCart} from "../store/actions/cartActions"
+import {addToCart,removeFromCart} from "../store/actions/cartActions"
 import { toast } from "react-toastify";
 
 export default function ProductList() {
@@ -23,7 +23,16 @@ export default function ProductList() {
 
   const handleAddToCart=(product)=>{
     dispatch(addToCart(product))
+    console.log("product")
+    console.log(product)
     toast.success(`${product.name} sepete eklendi!`)
+    
+  }
+  const handleRemoveFromCart=(product)=>{
+    dispatch(removeFromCart(product))
+    console.log("product")
+    console.log(product)
+    toast.error(`${product.name} sepetten silindi!`)
     
   }
 
@@ -50,6 +59,7 @@ export default function ProductList() {
               <Table.Cell>{product.quantityPerUnit}</Table.Cell>
               <Table.Cell>{product.categoryID}</Table.Cell>
               <Table.Cell> <Button onClick={()=>handleAddToCart(product)}>Sepete Ekle</Button></Table.Cell>
+              <Table.Cell> <Button onClick={()=>handleRemoveFromCart(product)}>Sepetten Sil</Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
