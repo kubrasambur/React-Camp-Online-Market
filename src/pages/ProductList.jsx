@@ -1,6 +1,6 @@
 //hook react ın yaşam döngüsüne müdahalede bulunur
 import React, { useState, useEffect } from "react";
-import { Icon, Menu, Table,Button } from "semantic-ui-react";
+import { Table,Button } from "semantic-ui-react";
 import ProductService from "../services/productService";
 import {Link} from "react-router-dom"
 import { useDispatch } from "react-redux";
@@ -22,9 +22,8 @@ export default function ProductList() {
   }, []);
 
   const handleAddToCart=(product)=>{
+    
     dispatch(addToCart(product))
-    console.log("product")
-    console.log(product)
     toast.success(`${product.name} sepete eklendi!`)
     
   }
@@ -47,6 +46,7 @@ export default function ProductList() {
             <Table.HeaderCell>Açıklama</Table.HeaderCell>
             <Table.HeaderCell>Kategori Id</Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -59,29 +59,10 @@ export default function ProductList() {
               <Table.Cell>{product.quantityPerUnit}</Table.Cell>
               <Table.Cell>{product.categoryID}</Table.Cell>
               <Table.Cell> <Button onClick={()=>handleAddToCart(product)}>Sepete Ekle</Button></Table.Cell>
-              <Table.Cell> <Button onClick={()=>handleRemoveFromCart(product)}>Sepetten Sil</Button></Table.Cell>
+              <Table.Cell> <Button onClick={()=>handleRemoveFromCart(product)}>Sepetten Sil -EKLEDİĞİNİZ ÜRÜNLERİ ÇIKARDIKTAN SONRA BİDA BASMAYIN BURAYA-</Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
-
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan="3">
-              <Menu floated="right" pagination>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron left" />
-                </Menu.Item>
-                <Menu.Item as="a">1</Menu.Item>
-                <Menu.Item as="a">2</Menu.Item>
-                <Menu.Item as="a">3</Menu.Item>
-                <Menu.Item as="a">4</Menu.Item>
-                <Menu.Item as="a" icon>
-                  <Icon name="chevron right" />
-                </Menu.Item>
-              </Menu>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
       </Table>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Dropdown, Label } from "semantic-ui-react";
 import { useSelector } from "react-redux";
+ 
 
 export default function CartSummary() {
   //state deki cart ı const olarak tanımladığımız cartItems a kullanabilmesi için atadık
@@ -10,9 +11,11 @@ export default function CartSummary() {
   function fiyat(quantity, price) {
     return quantity * price
   }
+  
 
   return (
     <div>
+      
       <Dropdown item text="Sepetiniz">
         <Dropdown.Menu>
           {cartItems.map((cartItem) => (

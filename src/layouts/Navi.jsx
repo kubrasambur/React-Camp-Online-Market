@@ -32,9 +32,9 @@ export default function Navi() {
         <Container>
           <Menu.Item name="home" as={NavLink} to="/"/>
           <Menu.Item name="messages" />
-
+          
           <Menu.Menu position="right">
-            {/*cartSumarry i eleman sayısı 0 ise render et*/}
+            {/*cartSumarry i eleman sayısı 0 dan büyük ise render et*/}
             {cartItems.length>0 && <CartSummary/>}
             {/* SignedIn signOut={handleSignOut} :  signIn in içerisinde signOut diye bir fonksiyon var da o da handleSignOut u tetikliyor gibi */}
             {/* signOut={handleSignOut} : alt component e data geçtik */}
