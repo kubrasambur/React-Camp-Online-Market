@@ -24,14 +24,12 @@ export default function ProductList() {
   const handleAddToCart=(product)=>{
     
     dispatch(addToCart(product))
-    toast.success(`${product.name} sepete eklendi!`)
+    toast.success(`${product.productName} sepete eklendi!`)
     
   }
   const handleRemoveFromCart=(product)=>{
     dispatch(removeFromCart(product))
-    console.log("product")
-    console.log(product)
-    toast.error(`${product.name} sepetten silindi!`)
+    toast.error(`${product.productName} sepetten silindi!`)
     
   }
 
@@ -52,14 +50,14 @@ export default function ProductList() {
 
         <Table.Body>
           {products.map((product) => (
-            <Table.Row key={product.productID}>
-              <Table.Cell><Link to={`/products/${product.name}`}>{product.name}</Link></Table.Cell>
+            <Table.Row key={product.ProductID}>
+              <Table.Cell><Link to={`/products/${product.productName}`}>{product.productName}</Link></Table.Cell>
               <Table.Cell>{product.unitPrice}</Table.Cell>
               <Table.Cell>{product.unitsInStock}</Table.Cell>
               <Table.Cell>{product.quantityPerUnit}</Table.Cell>
-              <Table.Cell>{product.categoryID}</Table.Cell>
+              <Table.Cell>{product.categoryId}</Table.Cell>
               <Table.Cell> <Button onClick={()=>handleAddToCart(product)}>Sepete Ekle</Button></Table.Cell>
-              <Table.Cell> <Button onClick={()=>handleRemoveFromCart(product)}>Sepetten Sil -EKLEDİĞİNİZ ÜRÜNLERİ ÇIKARDIKTAN SONRA BİDA BASMAYIN BURAYA-</Button></Table.Cell>
+              <Table.Cell> <Button onClick={()=>handleRemoveFromCart(product)}>Sepetten Sil </Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

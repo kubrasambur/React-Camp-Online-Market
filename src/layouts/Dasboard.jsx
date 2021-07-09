@@ -19,10 +19,10 @@ export default function Dasboard() {
           </Grid.Column>
           <Grid.Column width={12}>
             <Route exact path="/" component={ProductList}/>
-            <Route exact path="/products" component={ProductList}/>
-            <Route path="/products/:pname" component={ProductDetail}/>
+            <Route exact path="/Products" component={ProductList}/>
+            <Route path="/Products/:pname" component={ProductDetail}/>
             <Route path="/cart" component={CartDetail}/>
-            <Route path="/product/add" component={ProductAdd}/>
+            <Route path="/Products/add" component={ProductAdd}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>

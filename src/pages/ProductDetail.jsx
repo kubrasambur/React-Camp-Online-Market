@@ -27,7 +27,7 @@ export default function ProductDetail() {
               src="https://react.semantic-ui.com/images/avatar/large/jenny.jpg"
             />
             <Card.Header>{pname}</Card.Header>
-            <Card.Meta>{product.productID}</Card.Meta>
+            <Card.Meta>{product.ProductID}</Card.Meta>
             <Card.Description>
               Jenny requested permission to view your contact details
             </Card.Description>
